@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>跳转中...</title>
+</head>
+
+<body>
+    <div id="remind" hidden="true">
+        请点击右上角选择在浏览器中打开.
+    </div>
+
+    </div>
+    <script>
+        function isWeixinBrowser() {
+            return /micromessenger/.test(navigator.userAgent.toLowerCase())
+        }
+
+        if (isWeixinBrowser()) {
+            var remind = document.getElementById('remind');
+            remind.hidden = false;
+        } else {
+            var urlParams = new URLSearchParams(window.location.search);
+            var realUrl = urlParams.get('u');
+            this.location = realUrl
+        }
+    </script>
+</body>
+
+</html>
